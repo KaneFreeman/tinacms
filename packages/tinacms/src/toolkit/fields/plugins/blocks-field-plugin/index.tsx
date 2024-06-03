@@ -84,6 +84,8 @@ const Blocks = ({
 
   const items = input.value || []
 
+  console.log(`[${field.name}] items`, JSON.stringify(items, null, 2))
+
   // @ts-ignore
   const isMax = items.length >= (field.max || Infinity)
   // @ts-ignore

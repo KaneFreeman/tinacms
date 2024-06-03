@@ -1,8 +1,9 @@
 import { defineConfig, tinaTableTemplate } from 'tinacms'
 import { contentBlockSchema } from '../components/blocks/content'
-import { featureBlockSchema } from '../components/blocks/features'
+import { featuresBlockSchema } from '../components/blocks/features'
 import { heroBlockSchema } from '../components/blocks/hero'
 import { testimonialBlockSchema } from '../components/blocks/testimonial'
+import { gridBlockSchema } from '../components/blocks/grid'
 import { ColorPickerInput } from '../components/fields/color'
 import { iconSchema } from '../components/util/icon'
 
@@ -365,9 +366,10 @@ const config = defineConfig({
             templates: [
               heroBlockSchema,
               // @ts-ignore
-              featureBlockSchema,
+              featuresBlockSchema,
               contentBlockSchema,
               testimonialBlockSchema,
+              gridBlockSchema,
             ],
           },
         ],

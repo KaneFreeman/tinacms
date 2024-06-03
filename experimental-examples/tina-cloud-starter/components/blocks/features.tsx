@@ -5,6 +5,7 @@ import { iconSchema } from '../util/icon'
 import {
   PageBlocksFeatures,
   PageBlocksFeaturesItems,
+  PageBlocksGridBlocksFeature,
 } from '../../.tina/__generated__/types'
 import { tinaField } from 'tinacms/dist/react'
 
@@ -12,8 +13,8 @@ export const Feature = ({
   featuresColor,
   data,
 }: {
-  featuresColor: string
-  data: PageBlocksFeaturesItems
+  featuresColor?: string
+  data: PageBlocksFeaturesItems | PageBlocksGridBlocksFeature
 }) => {
   return (
     <div
@@ -64,7 +65,7 @@ export const Features = ({ data }: { data: PageBlocksFeatures }) => {
   )
 }
 
-const defaultFeature = {
+export const defaultFeature = {
   title: "Here's Another Feature",
   text: "This is where you might talk about the feature, if this wasn't just filler text.",
   icon: {
@@ -74,7 +75,7 @@ const defaultFeature = {
   },
 }
 
-export const featureBlockSchema = {
+export const featuresBlockSchema = {
   name: 'features',
   label: 'Features',
   ui: {
@@ -125,6 +126,33 @@ export const featureBlockSchema = {
         { label: 'Tint', value: 'tint' },
         { label: 'Primary', value: 'primary' },
       ],
+    },
+  ],
+}
+
+export const featureBlockSchema = {
+  name: 'feature',
+  label: 'Feature',
+  ui: {
+    previewSrc: '/blocks/features.png',
+    defaultItem: {
+      items: defaultFeature,
+    },
+  },
+  fields: [
+    iconSchema,
+    {
+      type: 'string',
+      label: 'Title',
+      name: 'title',
+    },
+    {
+      type: 'string',
+      label: 'Text',
+      name: 'text',
+      ui: {
+        component: 'textarea',
+      },
     },
   ],
 }
